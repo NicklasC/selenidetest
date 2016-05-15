@@ -22,7 +22,7 @@ public class PageBase {
     }
     
     protected void setTextFieldValue(String descriptor,String value, SelenideElement element){
-        LOG.log(Level.INFO, "Setting {0} to {1}", new Object[]{descriptor, element});
+        LOG.info("Setting " + descriptor + " to " + value);
         element.clear();
         element.sendKeys(value);
     }

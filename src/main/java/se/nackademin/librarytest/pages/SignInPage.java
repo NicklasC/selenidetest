@@ -1,10 +1,12 @@
 package se.nackademin.librarytest.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import java.util.logging.Logger;
 import org.openqa.selenium.support.FindBy;
 
-public class SignInPage extends MenuPage {
+public class SignInPage extends PageBase {
     
+    private  static final Logger LOG = Logger.getLogger(MenuPage.class.getName());
     @FindBy(css="#input-username")
     SelenideElement userNameField;
     
@@ -15,14 +17,12 @@ public class SignInPage extends MenuPage {
     SelenideElement logInButton;
     
     public void setUserName(String username){
-        userNameField.clear();
-        userNameField.sendKeys(username);
+        setTextFieldValue("username",username,userNameField);
+
     }
     
     public void setPassword(String password){
-        passwordField.clear();
-        passwordField.sendKeys(password);
-    
+        setTextFieldValue("password",password,passwordField);
     }
     public void clickLogInButton(){
         logInButton.click();
