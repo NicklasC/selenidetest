@@ -5,6 +5,13 @@ import se.nackademin.librarytest.model.Book;
 import se.nackademin.librarytest.pages.BookPage;
 import se.nackademin.librarytest.pages.BrowseBooksPage;
 import se.nackademin.librarytest.pages.MenuPage;
+import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.page;
 public class BookHelper {
     
     public static void addNewBook(Book book){
@@ -15,7 +22,7 @@ public class BookHelper {
         MenuPage menuPage = page(MenuPage.class);
         menuPage.navigateToBrowseBooks();
         BrowseBooksPage browseBooksPage = page(BrowseBooksPage.class);
-        browseBooksPage.setTitleField("Guards!");
+        browseBooksPage.setTitleField(searchQuery);
         browseBooksPage.clickSearchBooksButton();
         browseBooksPage.clickFirstResultTitle();
         
@@ -26,6 +33,6 @@ public class BookHelper {
         book.setAuthor(bookPage.getAuthor());
         book.setDescription(bookPage.getDescription());
         return book;
-        
     }
+    
 }

@@ -22,12 +22,8 @@ public class SelenideTest extends TestBase{
     @Test
     public void testFetchBook(){
         Book book = BookHelper.fetchBook("Guards!");
-        //Book book = BookHelper.fetchBook("Guards!");
         assertEquals("book title should be 'Guards guards","Guards! Guards!",book.getTitle());
     }
-    
-    
-    
     
     @Test
     //@Ignore
@@ -38,14 +34,10 @@ public class SelenideTest extends TestBase{
         UserHelper.createNewUser(uuid, uuid);
         UserHelper.loginAsUser(uuid, uuid);
         
-        
         // My profile
         menuPage.navigateToMyProfile();
         MyProfilePage myProfilePage = page(MyProfilePage.class);
          
         assertEquals("Username should be shown in profile",uuid,myProfilePage.getUserName());
-        
     }
-            
-    
 }

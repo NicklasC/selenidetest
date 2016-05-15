@@ -14,6 +14,10 @@ import se.nackademin.librarytest.pages.MyProfilePage;
 import static com.codeborne.selenide.Selenide.page;
 import static com.codeborne.selenide.Selenide.page;
 import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.page;
 
 
 

@@ -5,15 +5,12 @@
  */
 package se.nackademin.librarytest;
 
-import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.Selenide.sleep;
 import org.junit.Test;
 import se.nackademin.librarytest.helpers.AuthorHelper;
 import se.nackademin.librarytest.pages.MenuPage;
 
 import static se.nackademin.librarytest.helpers.StringHelper.randomString;
 import se.nackademin.librarytest.helpers.UserHelper;
-import se.nackademin.librarytest.pages.BrowseAuthorsPage;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertEquals;
 import se.nackademin.librarytest.pages.ViewAuthorPage;

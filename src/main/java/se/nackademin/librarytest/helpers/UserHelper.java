@@ -10,6 +10,7 @@ import se.nackademin.librarytest.pages.AddUserPage;
 import se.nackademin.librarytest.pages.MenuPage;
 import se.nackademin.librarytest.pages.MyProfilePage;
 import se.nackademin.librarytest.pages.SignInPage;
+import static com.codeborne.selenide.Selenide.page;
 
 /**
  *
