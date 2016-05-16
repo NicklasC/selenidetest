@@ -24,6 +24,4 @@ public class AddUserPage extends MenuPage {
     public void clickAddUserButton(){
         clickButton("add user button", addUserButton);
     }
-    
-    
 }

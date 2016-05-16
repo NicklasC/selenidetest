@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package se.nackademin.librarytest.helpers;
 
+package se.nackademin.librarytest.helpers;
 import static com.codeborne.selenide.Selenide.page;
-import static se.nackademin.librarytest.helpers.StringHelper.randomString;
 import se.nackademin.librarytest.pages.AddAuthorPage;
 import se.nackademin.librarytest.pages.BrowseAuthorsPage;
 import se.nackademin.librarytest.pages.MenuPage;
-import se.nackademin.librarytest.pages.ViewAuthorPage;
 
 /**
  *
@@ -41,5 +34,4 @@ public class AuthorHelper {
         browseAuthorsPage.clickSearchAuthorsButton();
         browseAuthorsPage.clickFirstSearchResult();
     }
-            
 }

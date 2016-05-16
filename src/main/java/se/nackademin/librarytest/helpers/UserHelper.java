@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.nackademin.librarytest.helpers;
 
-import static com.codeborne.selenide.Selenide.page;
 import se.nackademin.librarytest.pages.AddUserPage;
 import se.nackademin.librarytest.pages.MenuPage;
 import se.nackademin.librarytest.pages.MyProfilePage;
 import se.nackademin.librarytest.pages.SignInPage;
 import static com.codeborne.selenide.Selenide.page;
+import se.nackademin.librarytest.model.User;
 
 /**
  *
@@ -38,7 +33,6 @@ public class UserHelper {
         signInPage.setUserName(userName);
         signInPage.setPassword(passWord);
         signInPage.clickLogInButton();
-    
     }
     
     public static void updateUserEmailAdress(String newEmailAdress){
@@ -50,7 +44,11 @@ public class UserHelper {
         myProfilePage.clickEditUserButton();
         myProfilePage.setEmailAdress(newEmailAdress);
         myProfilePage.clickSaveUserButton();
-
     }
+    public static void createAndLoginNewUser(){
+        User user = new User();
 
+        UserHelper.createNewUser(user.getUserName(), user.getPassword());
+        UserHelper.loginAsUser(user.getUserName(), user.getPassword());
+    }
 }

@@ -45,6 +45,4 @@ public class MyProfilePage extends PageBase{
     public void clickReturnBookButton(){
         clickButton("return book button",returnBookButton);
     }
-    
-    
 }

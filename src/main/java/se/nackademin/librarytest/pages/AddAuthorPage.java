@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.nackademin.librarytest.pages;
 
 import com.codeborne.selenide.SelenideElement;
@@ -34,7 +29,6 @@ public class AddAuthorPage extends PageBase{
     public void setFirstName(String firstname){
         setTextFieldValue("username",firstname,firstNameField);
     }
-    
     public void setLastName(String lastname){
         setTextFieldValue("username",lastname,lastNameField);
     }
@@ -47,7 +41,4 @@ public class AddAuthorPage extends PageBase{
     public void clickAddAuthorButton(){
         clickButton("author button",addAuthorButton);
     }
-    
-
-    
 }

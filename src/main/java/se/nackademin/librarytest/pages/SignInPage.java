@@ -18,7 +18,6 @@ public class SignInPage extends PageBase {
     
     public void setUserName(String username){
         setTextFieldValue("username",username,userNameField);
-
     }
     
     public void setPassword(String password){
@@ -27,6 +26,4 @@ public class SignInPage extends PageBase {
     public void clickLogInButton(){
         logInButton.click();
     }
-    
-    
 }

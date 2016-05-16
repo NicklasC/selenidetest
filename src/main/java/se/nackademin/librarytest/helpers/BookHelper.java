@@ -1,32 +1,27 @@
 package se.nackademin.librarytest.helpers;
-
 import static com.codeborne.selenide.Selenide.page;
 import se.nackademin.librarytest.model.Book;
 import se.nackademin.librarytest.pages.BookPage;
 import se.nackademin.librarytest.pages.BrowseBooksPage;
 import se.nackademin.librarytest.pages.MenuPage;
-import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.Selenide.page;
+import se.nackademin.librarytest.pages.MyProfilePage;
+
 public class BookHelper {
-    
+    static MenuPage menuPage = page(MenuPage.class);
+    static BookPage bookPage = page(BookPage.class);
+    static BrowseBooksPage browseBooksPage = page(BrowseBooksPage.class);
+    static MyProfilePage myProfilePage = page(MyProfilePage.class);
+
     public static void addNewBook(Book book){
        
    
     }
     public static Book fetchBook(String searchQuery){
-        MenuPage menuPage = page(MenuPage.class);
         menuPage.navigateToBrowseBooks();
-        BrowseBooksPage browseBooksPage = page(BrowseBooksPage.class);
         browseBooksPage.setTitleField(searchQuery);
         browseBooksPage.clickSearchBooksButton();
         browseBooksPage.clickFirstResultTitle();
         
-        BookPage bookPage = page(BookPage.class);
         Book book = new Book();
         book.getTitle();
         book.setTitle(bookPage.getTitle());
@@ -35,4 +30,10 @@ public class BookHelper {
         return book;
     }
     
+    public static void returnBook(){
+        menuPage.navigateToMyProfile();
+        myProfilePage.clickFirstBookInProfile();
+        myProfilePage.clickReturnBookButton();
+        bookPage.clickConfirmOKbutton();
+    }
 }
