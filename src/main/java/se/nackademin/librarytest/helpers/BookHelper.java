@@ -1,5 +1,6 @@
 package se.nackademin.librarytest.helpers;
 import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.sleep;
 import se.nackademin.librarytest.model.Book;
 import se.nackademin.librarytest.pages.BookPage;
 import se.nackademin.librarytest.pages.BrowseBooksPage;
@@ -22,6 +23,7 @@ public class BookHelper {
         browseBooksPage.clickSearchBooksButton();
         browseBooksPage.clickFirstResultTitle();
         
+        sleep (1000);
         Book book = new Book();
         book.getTitle();
         book.setTitle(bookPage.getTitle());
