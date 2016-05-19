@@ -1,4 +1,5 @@
 package se.nackademin.librarytest.pages;
+import static com.codeborne.selenide.Selenide.sleep;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -53,6 +54,7 @@ public class BookPage extends PageBase{
     }
 
     public String getCopiesAvailable(){
+        sleep(1000);
         return copiesAvailable.getText();
     }
 
