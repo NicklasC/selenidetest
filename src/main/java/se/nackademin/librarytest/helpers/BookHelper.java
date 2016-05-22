@@ -23,7 +23,6 @@ public class BookHelper {
         browseBooksPage.clickSearchBooksButton();
         browseBooksPage.clickFirstResultTitle();
         
-        sleep (1000);
         Book book = new Book();
         book.getTitle();
         book.setTitle(bookPage.getTitle());

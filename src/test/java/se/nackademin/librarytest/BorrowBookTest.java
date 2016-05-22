@@ -28,9 +28,6 @@ public class BorrowBookTest extends TestBase{
         bookPage.clickBorrowBookButton();
         bookPage.clickConfirmOKbutton();
         
-        //Sleep is not needed, but the test fails without it when ran through jenkins..?
-        sleep(1000);
-                
         // Verifying that one less copy is available
         assertEquals("Copies available should be reduced by one",copiesAvailable-1,Integer.parseInt(bookPage.getCopiesAvailable()));
         BookHelper.returnBook();
