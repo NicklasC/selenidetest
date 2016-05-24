@@ -42,6 +42,12 @@ public class BookPage extends PageBase{
     public String getTitle(){
         return titleField.getText();
     }
+    
+    public void setTitle(String title){
+        setTextFieldValue("title",title,titleField);
+    }
+    
+    
     public String getAuthor(){
         return authorField.getText();
     }

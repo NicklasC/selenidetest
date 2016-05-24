@@ -45,7 +45,7 @@ public class UniqueBook extends Book{
             setDatePublished(useDatePublished);
         }
         else{
-            setDatePublished(StringHelper.randomString());
+            setDatePublished("2010-04-10");
         }
         if (useNbrAvailable!=null){
             setNbrAvailable(useNbrAvailable);
