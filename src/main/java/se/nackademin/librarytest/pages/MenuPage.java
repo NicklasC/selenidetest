@@ -23,10 +23,16 @@ public class MenuPage extends PageBase{
     @FindBy(css="#side-menu-link-browse-authors")
     private SelenideElement browseAuthors;
     
+    @FindBy(css="#side-menu-link-add-book")
+    private SelenideElement addBooks;
+    
     public void navigateToBrowseBooks(){
         clickButton("browse books", browseBook);
     }
-    
+       
+    public void navigateToAddBooks(){
+        clickButton("add books",addBooks);
+    }
     
     public void navigateToAddUser(){
         clickButton("add user", addUser);
