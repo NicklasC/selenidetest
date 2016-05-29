@@ -1,6 +1,8 @@
 
 package se.nackademin.librarytest.helpers;
 import static com.codeborne.selenide.Selenide.page;
+import static se.nackademin.librarytest.helpers.StringHelper.randomString;
+import se.nackademin.librarytest.model.Author;
 import se.nackademin.librarytest.pages.AddAuthorPage;
 import se.nackademin.librarytest.pages.BrowseAuthorsPage;
 import se.nackademin.librarytest.pages.MenuPage;
@@ -10,24 +12,45 @@ import se.nackademin.librarytest.pages.MenuPage;
  * @author nicklas
  */
 public class AuthorHelper {
-    public static void addNewAuthor(String firstName,String lastName,String country, String biography){
+    public static Author addNewAuthor(String firstName,String lastName,String country, String biography){
         MenuPage menuPage = page(MenuPage.class);
         AddAuthorPage addAuthorPage = page (AddAuthorPage.class);
-      
+
         menuPage.navigateToAddAuthor();
+        
+        if(firstName==null){
+            firstName=randomString();
+        }
+        if(lastName==null){
+            lastName=randomString();
+        }
+        if(country==null){
+            country=randomString();
+        }
+        if(biography==null){
+            biography=randomString();
+        }
+
+        Author author = new Author();
+        author.setFirstName(firstName);
+        author.setLastName(lastName);
+        author.setCountry(country);
+        author.setBiography(biography);
     
         addAuthorPage.setFirstName(firstName);
         addAuthorPage.setLastName(lastName);
         addAuthorPage.setCountry(country);
         addAuthorPage.setBiography(biography);
         addAuthorPage.clickAddAuthorButton();
-
+        
+        return author;
     }
+    
     public static void searchAndDisplayAuthor(String firstName,String lastName,String country){
         MenuPage menuPage = page(MenuPage.class);
-            
+        BrowseAuthorsPage browseAuthorsPage = page(BrowseAuthorsPage.class);    
+        
         menuPage.navigateToBrowseAuthors();
-        BrowseAuthorsPage browseAuthorsPage = page(BrowseAuthorsPage.class);
         
         browseAuthorsPage.setName(firstName+" "+lastName);
         browseAuthorsPage.setCountry(country);

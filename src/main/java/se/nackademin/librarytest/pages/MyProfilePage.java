@@ -20,9 +20,6 @@ public class MyProfilePage extends PageBase{
     @FindBy(css="td.v-grid-cell:nth-child(1) > a:nth-child(1)")
     SelenideElement firstBookInProfile;
     
-    @FindBy(css="#return-book-button")
-    SelenideElement returnBookButton;
-    
     public String getUserName(){
         return userNameField.getText();
     }
@@ -41,8 +38,5 @@ public class MyProfilePage extends PageBase{
     }
     public void clickFirstBookInProfile(){
         clickButton("first book in profile",firstBookInProfile);
-    }
-    public void clickReturnBookButton(){
-        clickButton("return book button",returnBookButton);
     }
 }

@@ -25,7 +25,7 @@ public class UniqueBook extends Book{
             setAuthor(useAuthor);
         }
         else{
-            setAuthor(StringHelper.randomString());
+            setAuthor("Stephen Baxter");
         }
 
         if(useDescription!=null){

@@ -6,9 +6,18 @@ import org.openqa.selenium.support.FindBy;
  *
  * @author nicklas
  */
-public class BrowseBooksPage {
+public class BrowseBooksPage extends PageBase{
     @FindBy(css="#gwt-uid-3")
     private SelenideElement titleField;
+    
+    @FindBy(css="#gwt-uid-5")
+    private SelenideElement nameOfAuthorField;
+    
+    @FindBy(css="#gwt-uid-7")
+    private SelenideElement isbnField;
+    
+    @FindBy(css="#gwt-uid-9")
+    private SelenideElement datePublishedField;
     
     @FindBy(css="#search-books-button")
     private SelenideElement  searchBooksButton;
@@ -21,9 +30,20 @@ public class BrowseBooksPage {
     }
     
     public void setTitleField(String title){
-        titleField.clear();
-        titleField.sendKeys(title);
+        setTextFieldValue("title",title,titleField);
     }
+    
+    public void setNameOfAuthorField(String author){
+        setTextFieldValue("name of author",author,nameOfAuthorField);
+    }
+    
+    public void setIsbnField(String isbn){
+        setTextFieldValue("isbn",isbn,isbnField);
+    }
+    public void setDatePublishedField(String datePublished){
+        setTextFieldValue("date published",datePublished,datePublishedField);
+    }
+    
     public void clickSearchBooksButton(){
         searchBooksButton.click();
     }
