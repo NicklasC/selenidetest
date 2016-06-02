@@ -1,4 +1,6 @@
 package se.nackademin.librarytest.pages;
+import com.codeborne.selenide.Condition;
+import static com.codeborne.selenide.Selenide.sleep;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -26,7 +28,13 @@ public class BrowseBooksPage extends PageBase{
     private SelenideElement firstResultTitle;
     
     public void clickFirstResultTitle(){
+        sleep(3000);
+        //firstResultTitle.waitUntil(Condition.visible, 9000);
         firstResultTitle.click();
+    }
+    public boolean firstSearchResultExist(){
+        sleep(3000);
+        return firstResultTitle.isDisplayed();
     }
     
     public void setTitleField(String title){
@@ -45,6 +53,7 @@ public class BrowseBooksPage extends PageBase{
     }
     
     public void clickSearchBooksButton(){
+        searchBooksButton.waitUntil(Condition.visible, 9000);
         searchBooksButton.click();
     }
 }

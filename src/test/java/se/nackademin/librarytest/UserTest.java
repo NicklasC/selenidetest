@@ -9,10 +9,13 @@ import se.nackademin.librarytest.helpers.UserHelper;
 import se.nackademin.librarytest.model.User;
 import se.nackademin.librarytest.pages.AddUserPage;
 import se.nackademin.librarytest.pages.MenuPage;
+import se.nackademin.librarytest.pages.MyProfilePage;
 
 public class UserTest extends TestBase{
     static MenuPage menuPage = page(MenuPage.class);
     static AddUserPage addUserPage = page(AddUserPage.class);
+    static MyProfilePage myProfilePage = page (MyProfilePage.class);
+    
     
     @Test
     public void userLoanerCreateAndLoginAndVerifyRights(){
@@ -63,5 +66,19 @@ public class UserTest extends TestBase{
         menuPage.navigateToSignOut();
         text=$(".v-label").getText();
         assertEquals("Librarian user should be logged out message should display","Signed out user "+newUser.getUserName()+".",text);
+    }
+    @Test
+    public void createAndDeleteLibrarianUser(){
+       User user = UserHelper.createNewLibraryUser(randomString(), randomString());
+       UserHelper.loginAsUser(user.getUserName(), user.getPassword());
+       menuPage.navigateToMyProfile();
+       
+       myProfilePage.clickDeleteUserButton();
+       myProfilePage.clickConfirmOKButton();
+       
+       UserHelper.loginAsUser(user.getUserName(), user.getPassword());
+       
+       assertEquals("Error wrong password should display as the user doesnt exist","Error: Wrong password.",$("div.v-slot:nth-child(9) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)").getText());
+    
     }
 }

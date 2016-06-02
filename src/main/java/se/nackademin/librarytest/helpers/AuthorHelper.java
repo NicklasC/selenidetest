@@ -1,6 +1,7 @@
 
 package se.nackademin.librarytest.helpers;
 import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.sleep;
 import static se.nackademin.librarytest.helpers.StringHelper.randomString;
 import se.nackademin.librarytest.model.Author;
 import se.nackademin.librarytest.pages.AddAuthorPage;
@@ -47,11 +48,12 @@ public class AuthorHelper {
     }
     
     public static void searchAndDisplayAuthor(String firstName,String lastName,String country){
+        sleep(3000);
         MenuPage menuPage = page(MenuPage.class);
         BrowseAuthorsPage browseAuthorsPage = page(BrowseAuthorsPage.class);    
         
         menuPage.navigateToBrowseAuthors();
-        
+        sleep(3000);
         browseAuthorsPage.setName(firstName+" "+lastName);
         browseAuthorsPage.setCountry(country);
         browseAuthorsPage.clickSearchAuthorsButton();

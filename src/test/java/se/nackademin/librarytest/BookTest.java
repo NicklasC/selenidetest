@@ -9,10 +9,14 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 import static org.junit.Assert.assertEquals;
 import se.nackademin.librarytest.helpers.UserHelper;
+import se.nackademin.librarytest.pages.BrowseBooksPage;
+import se.nackademin.librarytest.pages.MenuPage;
 
 public class BookTest extends TestBase{
     static ViewBookPage viewBookPage=page(ViewBookPage.class);
     static EditBookPage editBookPage=page(EditBookPage.class);
+    static MenuPage menuPage = page(MenuPage.class);
+    static BrowseBooksPage browseBooksPage = page (BrowseBooksPage.class);
     
     @Test
     public void bookCreateAndVerifyItIsSavedCorrectly(){
@@ -67,10 +71,7 @@ public class BookTest extends TestBase{
     
         UserHelper.loginAsAdmin();
         BookHelper.fetchBook("Rendezvous with Rama");
-        
-        EditBookPage bookPage = page(EditBookPage.class);
-        ViewBookPage viewBookPage = page(ViewBookPage.class);
-        
+       
         String currentDate=viewBookPage.getDatePublished();
         String newDate;
         if (currentDate.equals("1990-05-01")){
@@ -80,11 +81,26 @@ public class BookTest extends TestBase{
         }
         
         viewBookPage.clickEditBookButton();
-        bookPage.setDatePublished(newDate);
-        bookPage.clickSaveBookButton();
+        editBookPage.setDatePublished(newDate);
+        editBookPage.clickSaveBookButton();
         
         // Verifying the changes have taken place
         BookHelper.fetchBook("Rendezvous with Rama");
         assertEquals("Book date should have been updated",newDate,viewBookPage.getDatePublished());
+    }
+    
+    @Test
+    public void createAndDeleteBook(){
+        Book book = BookHelper.createBook(null, null, null, null, null, null);
+        BookHelper.fetchBook(book.getTitle());
+        
+        viewBookPage.clickDeleteBookButton();
+        viewBookPage.clickConfirmOkButton();
+        
+        menuPage.navigateToBrowseBooks();
+        browseBooksPage.setTitleField(book.getTitle());
+        browseBooksPage.clickSearchBooksButton();
+        
+        assertEquals("Book should now be deleted",false,browseBooksPage.firstSearchResultExist());
     }
 }

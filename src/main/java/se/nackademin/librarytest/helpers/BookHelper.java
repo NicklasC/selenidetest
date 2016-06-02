@@ -32,7 +32,7 @@ public class BookHelper {
     }
     public static Book fetchBook(String searchQuery){
         menuPage.navigateToBrowseBooks();
-        sleep(1000);
+        
         browseBooksPage.setTitleField(searchQuery);
         browseBooksPage.clickSearchBooksButton();
         sleep(1000);
@@ -58,6 +58,7 @@ public class BookHelper {
     }
     
     public static Book createBook(String useTitle,String useAuthor,String useDescription, String useIsbn,String useDatePublished, Integer useNbrAvailable){
+        sleep(1000);
         UserHelper.loginAsAdmin();
         
         MenuPage menuPage = page(MenuPage.class);

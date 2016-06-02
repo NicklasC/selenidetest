@@ -75,11 +75,12 @@ public class UserHelper {
         myProfilePage.setEmailAdress(newEmailAdress);
         myProfilePage.clickSaveUserButton();
     }
-    public static void createAndLoginNewUser(){
+    public static User createAndLoginNewUser(){
         User user = new User();
 
         UserHelper.createNewLoanerUser(user.getUserName(), user.getPassword());
         UserHelper.loginAsUser(user.getUserName(), user.getPassword());
+        return user;
     }
     
     public static void loginAsAdmin(){

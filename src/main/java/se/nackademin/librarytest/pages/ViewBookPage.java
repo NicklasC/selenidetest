@@ -1,5 +1,6 @@
 package se.nackademin.librarytest.pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -46,6 +47,7 @@ public class ViewBookPage extends PageBase{
 
 
     public String getTitle(){
+        titleField.waitUntil(Condition.visible, 9000);
         return titleField.getText();
     }
 
